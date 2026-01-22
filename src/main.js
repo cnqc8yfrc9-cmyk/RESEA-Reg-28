@@ -13,7 +13,14 @@ const translations = {
     locations: 'Office Locations',
     faq: 'FAQ & Compliance',
     employFlorida: 'Employ Florida Portal',
-    babelNotice: 'Language Assistance / Babel Notice'
+    babelNotice: 'Language Assistance / Babel Notice',
+    unofficial: 'UNOFFICIAL RESOURCE HUB',
+    disclaimerTitle: '⚠️ UNOFFICIAL SITE DISCLAIMER',
+    disclaimerText: 'This website is an unofficial community resource hub created by Ranya Soth, RESEA Lead to help job seekers navigate the RESEA process. It is not managed or endorsed by FloridaCommerce or CareerSource Tampa Bay. While we aim for accuracy, claimants must follow all instructions provided in their official appointment letters and the RECONNECT portal.',
+    builtWith: 'BUILT WITH',
+    navCSTB: 'CareerSource TB',
+    navEF: 'Employ Florida',
+    navReconnect: 'RECONNECT'
   },
   es: {
     welcome: 'Centro de Recursos RESEA',
@@ -26,7 +33,14 @@ const translations = {
     locations: 'Ubicaciones de Oficinas',
     faq: 'Preguntas Frecuentes y Cumplimiento',
     employFlorida: 'Portal de Employ Florida',
-    babelNotice: 'Asistencia Lingüística / Aviso de Babel'
+    babelNotice: 'Asistencia Lingüística / Aviso de Babel',
+    unofficial: 'CENTRO DE RECURSOS NO OFICIAL',
+    disclaimerTitle: '⚠️ AVISO LEGAL DEL SITIO NO OFICIAL',
+    disclaimerText: 'Este sitio web es un centro de recursos comunitarios no oficial creado por Ranya Soth, líder de RESEA, para ayudar a los buscadores de empleo a navegar el proceso de RESEA. No es administrado ni respaldado por FloridaCommerce o CareerSource Tampa Bay. Si bien buscamos la precisión, los reclamantes deben seguir todas las instrucciones proporcionadas en sus cartas oficiales de cita y en el portal RECONNECT.',
+    builtWith: 'CONSTRUIDO CON',
+    navCSTB: 'CareerSource TB',
+    navEF: 'Employ Florida',
+    navReconnect: 'RECONNECT'
   },
   ht: {
     welcome: 'Sant Resous RESEA',
@@ -39,7 +53,14 @@ const translations = {
     locations: 'Kote Biwo yo ye',
     faq: 'Kesyon yo poze souvan ak Konfòmite',
     employFlorida: 'Pòtal Employ Florida',
-    babelNotice: 'Asistans Lang / Avi Babel'
+    babelNotice: 'Asistans Lang / Avi Babel',
+    unofficial: 'SANT RESOUS KI PA OFISYÈL',
+    disclaimerTitle: '⚠️ AVÈTISMAN SIT KI PA OFISYÈL',
+    disclaimerText: 'Sit entènèt sa a se yon sant resous kominotè ki pa ofisyèl Ranya Soth, RESEA Lead, kreye pou ede moun k ap chèche travay navige nan pwosesis RESEA. Li pa jere oswa andose pa FloridaCommerce oswa CareerSource Tampa Bay. Pandan n ap vize pou presizyon, moun k ap fè reklamasyon yo dwe swiv tout enstriksyon yo bay nan lèt randevou ofisyèl yo ak pòtal RECONNECT la.',
+    builtWith: 'BATI AK',
+    navCSTB: 'CareerSource TB',
+    navEF: 'Employ Florida',
+    navReconnect: 'RECONNECT'
   }
 };
 
@@ -54,6 +75,28 @@ function toggleLanguage() {
 
   const labelMap = { 'en': 'Español', 'es': 'Kreyòl', 'ht': 'English' };
   document.getElementById('btn-es').textContent = labelMap[currentLang];
+
+  // Update nav/footer elements that are outside the #app
+  const updateIfFound = (id, key, useIcon = false) => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (useIcon) {
+        const icon = el.querySelector('i')?.outerHTML || '';
+        el.innerHTML = `${icon} ${t(key)} &nearr;`;
+      } else {
+        el.textContent = t(key);
+      }
+    }
+  };
+
+  updateIfFound('nav-unofficial', 'unofficial');
+  updateIfFound('nav-cstb', 'navCSTB', true);
+  updateIfFound('nav-ef', 'navEF', true);
+  updateIfFound('nav-reconnect', 'navReconnect', true);
+  updateIfFound('footer-disclaimer-title', 'disclaimerTitle');
+  updateIfFound('footer-disclaimer-text', 'disclaimerText');
+  updateIfFound('footer-built-with', 'builtWith');
+
   handleRoute();
 }
 
@@ -97,6 +140,10 @@ document.addEventListener('click', (e) => {
 
   if (e.target.id === 'btn-es') {
     toggleLanguage();
+  }
+
+  if (e.target.type === 'checkbox' && e.target.id) {
+    localStorage.setItem(`checklist-${e.target.id}`, e.target.checked);
   }
 });
 
@@ -371,27 +418,32 @@ function renderReseaProcess() {
 }
 
 function renderChecklist() {
+  const items = [
+    { id: 'ef-reg', label: '<strong>Employ Florida Registration:</strong> Full registration at <a href="https://www.employflorida.com" target="_blank">EmployFlorida.com</a>.' },
+    { id: 'bg-wizard', label: '<strong>Background Wizard:</strong> Completed within the Employ Florida portal.' },
+    { id: 'resume', label: '<strong>Current Resume:</strong> Uploaded or created in the Employ Florida system.' }
+  ];
+
+  const listItems = items.map(item => {
+    const checked = localStorage.getItem(`checklist-${item.id}`) === 'true';
+    return `
+      <li style="margin-bottom: var(--spacing-md); display: flex; gap: var(--spacing-sm); align-items: flex-start;">
+        <input type="checkbox" id="${item.id}" ${checked ? 'checked' : ''} style="margin-top: 5px; width: 20px; height: 20px;">
+        <label for="${item.id}">${item.label}</label>
+      </li>
+    `;
+  }).join('');
+
   return `
     <section class="container section">
-      <h1>Pre-Appointment Checklist</h1>
+      <h1>${t('checklist')}</h1>
       <div class="warning-banner">
         <p>Complete these steps <strong>BEFORE</strong> your appointment to avoid delays or disqualification.</p>
       </div>
       
       <div class="card">
         <ul style="list-style: none; padding-left: 0;">
-          <li style="margin-bottom: var(--spacing-md);">
-            <input type="checkbox" id="ef-reg">
-            <label for="ef-reg"><strong>Employ Florida Registration:</strong> Full registration at <a href="https://www.employflorida.com" target="_blank">EmployFlorida.com</a>.</label>
-          </li>
-          <li style="margin-bottom: var(--spacing-md);">
-            <input type="checkbox" id="bg-wizard">
-            <label for="bg-wizard"><strong>Background Wizard:</strong> Completed within the Employ Florida portal.</label>
-          </li>
-          <li style="margin-bottom: var(--spacing-md);">
-            <input type="checkbox" id="resume">
-            <label for="resume"><strong>Current Resume:</strong> Uploaded or created in the Employ Florida system.</label>
-          </li>
+          ${listItems}
         </ul>
       </div>
     </section>
