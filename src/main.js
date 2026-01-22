@@ -192,10 +192,16 @@ function renderHome() {
             <h2 style="margin-bottom: var(--spacing-sm);">📺 Featured: Decoding RESEA</h2>
             <p style="margin-bottom: var(--spacing-lg); color: var(--text-secondary);">Watch our comprehensive walkthrough to understand how to successfully navigate your RESEA appointment.</p>
             <div class="video-player-container">
-              <video controls>
-                <source src="/Decoding_RESEA.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/y22XQ97CtqQ?cc_load_policy=1&rel=0" 
+                title="Decoding RESEA Walkthrough" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
         </div>
