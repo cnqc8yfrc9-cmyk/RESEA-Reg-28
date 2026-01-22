@@ -85,9 +85,14 @@ function handleRoute() {
 // Event delegation for links and language toggle
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a');
-  if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-    e.preventDefault();
-    navigate(link.getAttribute('href'));
+  if (link && link.getAttribute('href')) {
+    const href = link.getAttribute('href');
+
+    // Only intercept internal links that are NOT direct files (like PDFs)
+    if (href.startsWith('/') && !href.endsWith('.pdf') && !link.hasAttribute('download')) {
+      e.preventDefault();
+      navigate(href);
+    }
   }
 
   if (e.target.id === 'btn-es') {
@@ -188,7 +193,7 @@ function renderHillsborough() {
               </a>
             </div>
             <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
-              <a href="/RESEA Hillsborough.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
+              <a href="/RESEA%20Hillsborough.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
             </div>
           </li>
           <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
@@ -219,17 +224,17 @@ function renderHillsboroughOrientation() {
       
       <div class="card" style="margin-bottom: var(--spacing-md); background: #e9ecef; border-left: 4px solid var(--primary-color);">
         <p><strong>Mobile Tip:</strong> If the document doesn't display below, tap the button to view it directly.</p>
-        <a href="/RESEA Hillsborough.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
+        <a href="/RESEA%20Hillsborough.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
           <i class="fa-solid fa-file-pdf"></i> View Full PDF (Mobile-Friendly)
         </a>
       </div>
 
       <div class="card" style="padding: 0; overflow: hidden; height: 80vh; border: 1px solid #dee2e6;">
-        <iframe src="/RESEA Hillsborough.pdf" width="100%" height="100%" style="border: none;"></iframe>
+        <iframe src="/RESEA%20Hillsborough.pdf" width="100%" height="100%" style="border: none;"></iframe>
       </div>
       
       <div style="margin-top: var(--spacing-md); text-align: center;">
-        <p>Problem viewing? <a href="/RESEA Hillsborough.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
+        <p>Problem viewing? <a href="/RESEA%20Hillsborough.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
       </div>
     </section>
   `;
@@ -252,7 +257,7 @@ function renderPinellas() {
               </a>
             </div>
             <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
-              <a href="/RESEA Pinellas.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
+              <a href="/RESEA%20Pinellas.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
             </div>
           </li>
           <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
@@ -295,17 +300,17 @@ function renderPinellasOrientation() {
 
       <div class="card" style="margin-bottom: var(--spacing-md); background: #e9ecef; border-left: 4px solid var(--primary-color);">
         <p><strong>Mobile Tip:</strong> If the document doesn't display below, tap the button to view it directly.</p>
-        <a href="/RESEA Pinellas.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
+        <a href="/RESEA%20Pinellas.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
           <i class="fa-solid fa-file-pdf"></i> View Full PDF (Mobile-Friendly)
         </a>
       </div>
 
       <div class="card" style="padding: 0; overflow: hidden; height: 80vh; border: 1px solid #dee2e6;">
-        <iframe src="/RESEA Pinellas.pdf" width="100%" height="100%" style="border: none;"></iframe>
+        <iframe src="/RESEA%20Pinellas.pdf" width="100%" height="100%" style="border: none;"></iframe>
       </div>
       
       <div style="margin-top: var(--spacing-md); text-align: center;">
-        <p>Problem viewing? <a href="/RESEA Pinellas.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
+        <p>Problem viewing? <a href="/RESEA%20Pinellas.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
       </div>
     </section>
   `;
@@ -448,14 +453,14 @@ function renderBabelNotice() {
       <p class="text-secondary" style="margin-bottom: var(--spacing-lg);">CareerSource Tampa Bay provides free language assistance to individuals with Limited English Proficiency. Below is the official multi-language notice of availability.</p>
       
       <div class="card" style="padding: 0; overflow: hidden; height: 80vh;">
-        <iframe src="/Babel notice.pdf" width="100%" height="100%" style="border: none;"></iframe>
+        <iframe src="/Babel%20notice.pdf" width="100%" height="100%" style="border: none;"></iframe>
       </div>
       
       <div class="card" style="margin-top: var(--spacing-xl); text-align: center;">
         <h3>General Assistance Hotline</h3>
         <p style="font-size: 1.5rem; font-weight: 700; color: var(--accent-color); margin-top: var(--spacing-sm);">1-833-FL-APPLY (1-833-352-7759)</p>
         <p style="margin-top: var(--spacing-sm);">Monday - Friday: 8:00 AM - 5:00 PM EST</p>
-        <p style="margin-top: var(--spacing-md);"><a href="/Babel notice.pdf" download class="btn btn-primary">Download Official PDF Notice</a></p>
+        <p style="margin-top: var(--spacing-md);"><a href="/Babel%20notice.pdf" download class="btn btn-primary">Download Official PDF Notice</a></p>
       </div>
     </section>
   `;
