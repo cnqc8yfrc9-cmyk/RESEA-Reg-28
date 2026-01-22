@@ -189,7 +189,6 @@ function renderHillsborough() {
             </div>
             <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
               <a href="/RESEA Hillsborough.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
-              <a href="/RESEA Hillsborough.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color);"><i class="fa-solid fa-expand"></i> Open Full PDF</a>
             </div>
           </li>
           <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
@@ -254,7 +253,6 @@ function renderPinellas() {
             </div>
             <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
               <a href="/RESEA Pinellas.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
-              <a href="/RESEA Pinellas.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color);"><i class="fa-solid fa-expand"></i> Open Full PDF</a>
             </div>
           </li>
           <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
