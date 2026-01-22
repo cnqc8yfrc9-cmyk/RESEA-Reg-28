@@ -182,22 +182,23 @@ function renderHillsborough() {
         <ul style="margin-top: var(--spacing-md);">
           <li>
             <strong>Orientation:</strong> <a href="/hillsborough/orientation" style="text-decoration: underline;">View Orientation PDF Online &rarr;</a>
-            <div style="margin-top: var(--spacing-sm); cursor: pointer;" onclick="navigate('/hillsborough/orientation')">
-          <img src="/orientation_preview.png" alt="Hillsborough Orientation Preview" style="width: 100%; max-width: 400px; border-radius: var(--border-radius); border: 1px solid var(--text-muted); box-shadow: var(--shadow-sm);">
-        </div>
-        <div style="margin-top: var(--spacing-md);">
-          <a href="/RESEA Hillsborough.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
-          <a href="/RESEA Hillsborough.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color); margin-left: var(--spacing-sm);"><i class="fa-solid fa-expand"></i> Full Screen</a>
-        </div>
-      </li>
-          <li><strong>CLIFF Dashboard (if applicable):</strong> Financial forecasting tool used during IEP.</li>
-          <li><strong>OAS Wizard:</strong> Objective Assessment Summary tool.</li>
+            <div style="margin-top: var(--spacing-sm);">
+              <a href="/hillsborough/orientation">
+                <img src="/orientation_preview.png" alt="Hillsborough Orientation Preview" style="width: 100%; max-width: 400px; border-radius: var(--border-radius); border: 1px solid var(--text-muted); box-shadow: var(--shadow-sm);">
+              </a>
+            </div>
+            <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+              <a href="/RESEA Hillsborough.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
+              <a href="/RESEA Hillsborough.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color);"><i class="fa-solid fa-expand"></i> Open Full PDF</a>
+            </div>
+          </li>
+          <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
+          <li><strong>OAS Wizard:</strong> Objective Assessment Summary tool used during your interview.</li>
           <li><strong>Veteran Services:</strong> Priority assistance for military veterans.</li>
         </ul>
-        <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+        <div style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
           <a href="tel:8139307400" class="action-btn"><i class="fa-solid fa-phone"></i> Call Office (813) 930-7400</a>
         </div>
-      </div>
       </div>
 
       <div style="margin-top: var(--spacing-xl);">
@@ -212,13 +213,22 @@ function renderHillsborough() {
 function renderHillsboroughOrientation() {
   return `
     <section class="container section">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg); flex-wrap: wrap; gap: var(--spacing-md);">
         <h1>Hillsborough Orientation</h1>
-        <a href="/hillsborough" class="btn btn-primary">&larr; Back to Hillsborough Portal</a>
+        <a href="/hillsborough" class="btn btn-primary">&larr; Back to Portal</a>
       </div>
-      <div class="card" style="padding: 0; overflow: hidden; height: 80vh;">
+      
+      <div class="card" style="margin-bottom: var(--spacing-md); background: #e9ecef; border-left: 4px solid var(--primary-color);">
+        <p><strong>Mobile Tip:</strong> If the document doesn't display below, tap the button to view it directly.</p>
+        <a href="/RESEA Hillsborough.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
+          <i class="fa-solid fa-file-pdf"></i> View Full PDF (Mobile-Friendly)
+        </a>
+      </div>
+
+      <div class="card" style="padding: 0; overflow: hidden; height: 80vh; border: 1px solid #dee2e6;">
         <iframe src="/RESEA Hillsborough.pdf" width="100%" height="100%" style="border: none;"></iframe>
       </div>
+      
       <div style="margin-top: var(--spacing-md); text-align: center;">
         <p>Problem viewing? <a href="/RESEA Hillsborough.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
       </div>
@@ -237,21 +247,23 @@ function renderPinellas() {
         <ul style="margin-top: var(--spacing-md);">
           <li>
             <strong>Orientation:</strong> <a href="/pinellas/orientation" style="text-decoration: underline;">View Orientation PDF Online &rarr;</a>
-            <div style="margin-top: var(--spacing-sm); cursor: pointer;" onclick="navigate('/pinellas/orientation')">
-          <img src="/orientation_preview.png" alt="Pinellas Orientation Preview" style="width: 100%; max-width: 400px; border-radius: var(--border-radius); border: 1px solid var(--text-muted); box-shadow: var(--shadow-sm);">
-        </div>
-        <div style="margin-top: var(--spacing-md);">
-          <a href="/RESEA Pinellas.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
-          <a href="/RESEA Pinellas.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color); margin-left: var(--spacing-sm);"><i class="fa-solid fa-expand"></i> Full Screen</a>
-        </div>
-      </li>
-          <li><strong>CLIFF Dashboard (if applicable):</strong> Financial forecasting tool used during IEP.</li>
-          <li><strong>OAS Wizard:</strong> Objective Assessment Summary tool.</li>
+            <div style="margin-top: var(--spacing-sm);">
+              <a href="/pinellas/orientation">
+                <img src="/orientation_preview.png" alt="Pinellas Orientation Preview" style="width: 100%; max-width: 400px; border-radius: var(--border-radius); border: 1px solid var(--text-muted); box-shadow: var(--shadow-sm);">
+              </a>
+            </div>
+            <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+              <a href="/RESEA Pinellas.pdf" download class="btn btn-primary" style="gap: 0.5rem;"><i class="fa-solid fa-file-pdf"></i> Download/Print PDF</a>
+              <a href="/RESEA Pinellas.pdf" target="_blank" class="btn" style="border: 1px solid var(--primary-color);"><i class="fa-solid fa-expand"></i> Open Full PDF</a>
+            </div>
+          </li>
+          <li style="margin-top: var(--spacing-md);"><strong>CLIFF Dashboard:</strong> Financial forecasting tool used to help you understand how changes in income might affect your benefits.</li>
+          <li><strong>OAS Wizard:</strong> Objective Assessment Summary tool used during your interview.</li>
           <li><strong>Veteran Services:</strong> Priority assistance for military veterans.</li>
         </ul>
       </div>
 
-      <div class="card" style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-lg); align-items: center;">
+      <div class="card" style="margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-lg); align-items: center; flex-wrap: wrap;">
         <img src="/sothr_contact.png" alt="Ranya Soth" style="width: 120px; height: 150px; object-fit: cover; object-position: top; border-radius: var(--border-radius); border: 2px solid var(--accent-color);">
         <div>
           <h3>Reschedule Contact</h3>
@@ -278,13 +290,22 @@ function renderPinellas() {
 function renderPinellasOrientation() {
   return `
     <section class="container section">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg); flex-wrap: wrap; gap: var(--spacing-md);">
         <h1>Pinellas Orientation</h1>
-        <a href="/pinellas" class="btn btn-primary">&larr; Back to Pinellas Portal</a>
+        <a href="/pinellas" class="btn btn-primary">&larr; Back to Portal</a>
       </div>
-      <div class="card" style="padding: 0; overflow: hidden; height: 80vh;">
+
+      <div class="card" style="margin-bottom: var(--spacing-md); background: #e9ecef; border-left: 4px solid var(--primary-color);">
+        <p><strong>Mobile Tip:</strong> If the document doesn't display below, tap the button to view it directly.</p>
+        <a href="/RESEA Pinellas.pdf" target="_blank" class="btn btn-accent" style="margin-top: var(--spacing-sm);">
+          <i class="fa-solid fa-file-pdf"></i> View Full PDF (Mobile-Friendly)
+        </a>
+      </div>
+
+      <div class="card" style="padding: 0; overflow: hidden; height: 80vh; border: 1px solid #dee2e6;">
         <iframe src="/RESEA Pinellas.pdf" width="100%" height="100%" style="border: none;"></iframe>
       </div>
+      
       <div style="margin-top: var(--spacing-md); text-align: center;">
         <p>Problem viewing? <a href="/RESEA Pinellas.pdf" download style="text-decoration: underline;">Download the PDF directly</a></p>
       </div>
